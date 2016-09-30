@@ -1,6 +1,8 @@
 OhMyZsh
 =======
 
+[![Build Status](https://travis-ci.org/jebovic/ansible-ohmyzsh.svg?branch=master)](https://travis-ci.org/jebovic/ansible-ohmyzsh)
+
 Install and configure Oh My Zsh for your personal user
 
 Requirements
