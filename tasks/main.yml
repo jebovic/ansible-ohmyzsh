@@ -26,4 +26,9 @@
 - name: creating new ~/.zshrc
   template:
     src: zshrc.j2
-    dest: /home/{{ ohmyzsh_for }}/.zshrc
+    dest: "/home/{{ ohmyzsh_for }}/.zshrc"
+
+- name: ensure user is using zsh shell
+  user:
+    name: "{{ ohmyzsh_for }}"
+    shell: /bin/zsh
