@@ -14,21 +14,23 @@
 - name: cloning repo
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh
-    dest: /home/{{ ohmyzsh_for }}/.oh-my-zsh
+    dest: "{{ item.home }}/.oh-my-zsh"
+  with_items: "{{ ohmyzsh_users }}"
 
-- name: add plugin
+- name: add syntax highlighting plugin
   git:
-    repo: "{{ item.repo }}"
-    dest: "/home/{{ ohmyzsh_for }}/.oh-my-zsh/custom/plugins/{{ item.dest }}"
-  with_items:
-    - { repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git", dest: "zsh-syntax-highlighting" }
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: "{{ item.home }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+  with_items: "{{ ohmyzsh_users }}"
 
 - name: creating new ~/.zshrc
   template:
     src: zshrc.j2
-    dest: "/home/{{ ohmyzsh_for }}/.zshrc"
+    dest: "{{ item.home }}/.zshrc"
+  with_items: "{{ ohmyzsh_users }}"
 
 - name: ensure user is using zsh shell
   user:
-    name: "{{ ohmyzsh_for }}"
+    name: "{{ item.username }}"
     shell: /bin/zsh
+  with_items: "{{ ohmyzsh_users }}"

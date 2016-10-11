@@ -15,7 +15,11 @@ Role Variables
 
 ```
 # Choose user who you want to install oh my zsh for
-ohmyzsh_for: ops
+ohmyzsh_users:
+  - username: ops
+    home: /home/ops
+  - username: root
+    home: /root
 go_path: /srv/golang
 ```
 
