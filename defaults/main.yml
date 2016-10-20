@@ -6,4 +6,3 @@ ohmyzsh_users:
     home: /home/ops
   - username: root
     home: /root
-go_path: /srv/golang
