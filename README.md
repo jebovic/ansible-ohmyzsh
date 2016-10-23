@@ -13,24 +13,28 @@ Need zsh to be installed first
 Role Variables
 --------------
 
-```
+```yaml
 # Choose user who you want to install oh my zsh for
 ohmyzsh_users:
   - username: ops
     home: /home/ops
   - username: root
     home: /root
-go_path: /srv/golang
 ```
 
 Example Playbook
 ----------------
 
+```yaml
+- hosts: servers
+  roles:
+     - { role: jebovic.ohmyzsh }
 ```
-    - hosts: servers
-      roles:
-         - { role: jebovic.ohmyzsh }
-```
+
+Tags
+----
+
+* ohmyzsh_config : only update config
 
 License
 -------

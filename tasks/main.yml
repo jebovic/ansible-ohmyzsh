@@ -28,6 +28,7 @@
     src: zshrc.j2
     dest: "{{ item.home }}/.zshrc"
   with_items: "{{ ohmyzsh_users }}"
+  tags: ohmyzsh_config
 
 - name: ensure user is using zsh shell
   user:
