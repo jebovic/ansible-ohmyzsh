@@ -3,10 +3,10 @@
 - name: install apt packages
   apt:
     name:  "{{ item }}"
-    state:              latest
+    state: latest
     install_recommends: false
-    update_cache:       yes
-    cache_valid_time:   300
+    update_cache: yes
+    cache_valid_time: 300
   with_items:
     - zsh
     - git
@@ -15,6 +15,15 @@
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh
     dest: "{{ item.home }}/.oh-my-zsh"
+  with_items: "{{ ohmyzsh_users }}"
+
+- name: set permissions
+  file:
+    path: "{{ item.home }}/.oh-my-zsh"
+    state: directory
+    recurse: yes
+    owner: "{{ item.username }}"
+    group: "{{ item.usergroup }}"
   with_items: "{{ ohmyzsh_users }}"
 
 - name: add syntax highlighting plugin
