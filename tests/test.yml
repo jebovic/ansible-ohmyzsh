@@ -3,3 +3,8 @@
   remote_user: root
   roles:
     - role_under_test
+  vars:
+    ohmyzsh_users:
+    - username: root
+      usergroup: root
+      home: /root
