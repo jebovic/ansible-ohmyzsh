@@ -2,7 +2,7 @@
 
 - name: install apt packages
   apt:
-    name:  "{{ item }}"
+    name: "{{ item }}"
     state: latest
     install_recommends: no
     update_cache: yes
