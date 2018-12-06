@@ -32,6 +32,12 @@
     dest: "{{ item.home }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
   with_items: "{{ ohmyzsh_users }}"
 
+- name: add auto suggestions plugin
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions.git
+    dest: "{{ item.home }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+  with_items: "{{ ohmyzsh_users }}"
+
 - name: creating new ~/.zshrc
   template:
     src: zshrc.j2

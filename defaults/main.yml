@@ -9,4 +9,4 @@ ohmyzsh_users:
     usergroup: root
     home: /root
 
-ohmyzsh_plugins: git colored-man-page colorize extract history npm symfony2 httpie zsh-syntax-highlighting
+ohmyzsh_plugins: git colored-man-page colorize extract history npm symfony2 httpie zsh-syntax-highlighting zsh-autosuggestions
